@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--ADMIN SIDEN ER STADIG UNDER UDARBEJDELSE, CRUD VIRKER (TILFØJ PRODUKT & OPRET NY KATEGORI)-->
+                            <!--FORTSÆTTELSE I NÆSTE PROJEKTPERIODE-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/stylesheet.css">
+    <title>Admin side</title>
+</head>
+
+<body>
+    <div id="wrappera">
+        <!--SÆRLIG WRAPPER FOR ADMIN SIDEN-->
+
+  <!--NAVBAR-->
+  <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  
+                </button>
+                <img class="logo" src="assets/media/logo.png" alt="Billede af HI-FI butikkens logo i menubaren" />
+                <a class="navbar-brand">HI-FI butikken</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Forside</a></li>
+                    <li><a href="produkter.html">Produkter</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="soge" onkeyup="myFunction()" placeholder="Søg">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                          </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><button class="btn-danger" id="logud">Log ud</button></li>
+                    
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Kurv</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+
+
+
+
+    
+        <!--OPRETTELSE AF NYT PRODUKT-->
+        <div id="logingroup"></div><form class="admin col-md-12">
+            <h1 id="adminHeading">Admin panel</h1>
+            <h2>Opret nyt produkt</h2>
+            
+            <!--INDTAST NAVN INPUT-->
+            <input name="navn" type="text" id="navn" placeholder="Indtast navn" class="col-md-4 col-md-offset-4 col-xs-12">
+            <br>
+            <!--INDTAST PRIS INPUT-->
+            <input name="pris" type="text" id="pris" placeholder="Indtast pris" class="col-md-4 col-md-offset-4 col-xs-12">
+            <br><br><br>
+            <!--BESKRIVELSE TEXTAREA-->
+            <textarea name="beskrivelse" id="beskrivelse" rows="4" cols="57" class "col-md-4 col-xs-12" placeholder="Angiv produkt beskrivelse"></textarea>
+            <br>
+            <!--SELECT BOKS 1, KATEGORI-->
+            <select name="select1" id="fk_kategori_id" class="col-md-4 col-md-offset-4">
+        <option>Vælg kategori</option>
+            <option value="1">CD afspillere</option>
+            <option value="2">DVD afspillere</option>
+            <option value="3">Effektforstærkere</option>
+            <option value="4">Forforstærkere</option>
+            <option value="5">Højtalere</option>
+            <option value="6">Int. Forstærkere</option>
+            <option value="7">Pladespillere</option>
+            <option value="8">Rørforstærkere</option>
+  
+    </select><br>
+            <!--SELECT BOKS 2, PRODUCENT-->
+            <select name="select2" id="fk_producent" class="col-md-4 col-md-offset-4">
+            <option>Vælg producent</option>
+                <option value="1">Creek Audio Ltd</option>
+                <option value="2">Exposure</option>
+                <option value="3">Parasound</option>
+                <option value="4">Manley</option>
+                <option value="5">Pro-ject Audio systems</option>
+                <option value="6">Bösendorfer</option>
+                <option value="7">Epos Ltd</option>
+                <option value="8">HArbeth Loudspeakers</option>
+                <option value="9">Jolida</option>
+               
+    </select>
+            <!--OBS! Fejl med cors når man forsøger at uploade et billede til databasen, vil forsøge at rette i næste praktik periode...-->
+            <!-- <br>
+    <input type="file" name="billede" id="billede" placeholder="Vælg billede" class="col-md-12 col-md-offset-12 col-xs-12"> -->
+        <!-- </div>
+        <br>
+        GEM KNAP--><br>
+        <button id="gemProdukt" class="col-md-4 col-md-offset-4 btn-success">Opret</button>
+<br>
+        
+        <h2 class="col-md-12">Opret Kategori </h2>
+
+       
+        <input class="col-md-4 col-md-offset-4" name="kategori" type="name" id="kategori" placeholder="Kategori navn"><br>
+      
+
+        <button class="col-md-4 col-md-offset-4 btn-success" id="gemKategori">Opret</button>
+    </div> </form>
+    
+    
+    
+    <div id="contentAdmin" class="col-md-10 col-md-offset-1">
+
+    </div>
+
+
+
+    
+ 
+
+
+    <!--SCRIPTS-->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+         <script src="assets/script/admin_produkter.js"></script>
+        
+</body>
+
+</html>

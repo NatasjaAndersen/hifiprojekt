@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheet/stylesheet.css">
+  <title>HI-FI butikken</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <!--WRAPPER START-->
+
+    <header>
+      <!--JUMBOTRON MED TITEL OG NAVN PÅ BUTIKKEN-->
+      <div class="jumbotron">
+        <div class="container text-center">
+          <h1>HI-FI butikken</h1>
+          <p>Musik, hi-fi udstyr &amp; guides</p>
+        </div>
+      </div>
+
+      <!--NAVBAR-->
+      <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  
+                </button>
+            <img class="logo" src="assets/media/logo.png" alt="Billede af HI-FI butikkens logo i menubaren" />
+            <a class="navbar-brand">HI-FI butikken</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Forside</a></li>
+              <li><a href="produkter.html">Produkter</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+              <li>
+                <div class="input-group col-xs-offset-4">
+                  <input type="text" class="form-control" id="soge" onkeyup="myFunction()" placeholder="Søg">
+                  <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                          </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Kurv</a></li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </nav>
+    </header>
+
+
+    <main>
+      <!--MAIN SECTION-->
+
+      <!--KONTAKT OS TEKST BOKSE OG BILLEDE-->
+      <h2 class="col-md-12">Kontakt os</h2>
+
+
+      <div class="tekstboks col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1">
+        <p>Vores kundeservice har åbent hele døgnet og vores kompetente og positive medarbejder er altid klar til at servicere
+          og vejlede dig hvis der er behov for det.</p>
+      </div>
+
+      <div class="tekstboks col-md-5 col-md-offset-0 col-xs-10 col-xs-offset-1">
+        <p>Du er velkommen til at kontakte os på et hvilket som helst tidspunkt af døgnet, så skal vi nok yde en god service
+          til dig og sørge for at dit problem bliver løst hurtigst muligt</p>
+      </div>
+      <div class="col-md-7 col-md-offset-3 col-xs-offset-2">
+        <img id="support" src="./assets/media/support.jpg" alt="Billede med en tegnet kundeservice medarbejder og et headset på en hvid baggrund"
+        />
+      </div>
+
+
+      <!--KONTAKT FORMULAR-->
+      <div class="col-md-4 col-xs-12">
+
+        <form>
+          <!--NAVN INPUT-->
+          <div class="input-group col-md-12 col-md-offset-12">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="navn" type="text" class="form-control" name="navn" placeholder="Indtast navn">
+          </div>
+          <!--EMAIL INPUT-->
+          <div class="input-group col-md-12 col-md-offset-12">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input id="email" type="text" class="form-control" name="email" placeholder="Indtast email">
+          </div>
+          <!--BESKED INPUT-->
+          <div class="input-group col-md-12 col-md-offset-12">
+            <span class="input-group-addon">Besked</span>
+            <input id="besked" class="form-control" name="besked" placeholder="Skriv din besked her">
+          </div><button id="gem" class="col-md-12 col-md-offset-12">Send</button>
+        </form>
+
+      </div>
+    </main>
+
+
+    <!--FOOTER SEKTION-->
+    <footer>
+
+      <!--VENSTRE DIV-->
+      <div class="row col-md-12">
+        <div class="col-md-3 col-md-offset-2">
+          <h3 class="col-md-3"><span class="col-md-offset-12 glyphicon glyphicon-globe"></span> Adresser: </h3>
+          <p class="col-md-12">HC Ørstedsvej 98</p>
+          <p class="col-md-12">Østerbrogade 140</p>
+        </div>
+        <!--MIDTER DIV-->
+        <div class="col-md-3">
+          <h3 class="col-md-3"><span class="col-md-offset-8 glyphicon glyphicon-phone-alt"></span> Telefon: </h3>
+          <p class="col-md-12">+4530608010</p>
+          <p class="col-md-12">+4520193020 (Hovedkontor)</p>
+        </div>
+        <!--HØJRE DIV-->
+        <div class="col-md-3">
+          <h3 class="col-md-3"><span class="col-md-offset-12 glyphicon glyphicon-time"></span> Åbningstider </h3>
+          <p class="col-md-12">Mandag - Fredag: 10-18</p>
+          <p class="col-md-12">Lørdag: 10-19</p>
+          <p class="col-md-12">Søndag: Lukket</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!--WRAPPER END-->
+
+
+  <!--SCRIPTS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="./assets/script/kontakt.js"></script>
+</body>
+
+</html>
