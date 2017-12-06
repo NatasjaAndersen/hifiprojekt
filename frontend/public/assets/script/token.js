@@ -1,12 +1,12 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('token') === null) {
-            window.location.assign('localhost:3000/login.html');
+            window.location.assign('178.62.227.144:3000/login.html');
         } else {
             const template = document.querySelector('template');
             const userElem = template.content.querySelector('.userInfo');
             console.log(localStorage.getItem('token'));
-            fetch('http://178.62.227.144/admin.html', {
+            fetch('http://178.62.227.144:3000/admin.html', {
                 'method': 'GET',
                 'headers': {
                     'Authorization': localStorage.getItem('token'),
