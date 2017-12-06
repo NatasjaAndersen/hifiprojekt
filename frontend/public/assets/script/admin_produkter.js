@@ -10,7 +10,7 @@
 function hentDataAdmin(type = 0) {
     // let url = 'http://localhost:3000/produkter';
     // if (type > 0) url += '/' + type;
-    fetch('http://localhost:3000/produkter', {
+    fetch('http://178.62.227.144/produkter', {
         'method': 'GET',
         'mode':'cors',
         'cache': 'default'
@@ -65,7 +65,7 @@ function hentDataAdmin(type = 0) {
 //.......OPDATER PRODUKT......
 
 function hentProduktAdmin(id) {
-    let url = 'http://localhost:3000/produkt/';
+    let url = 'http://178.62.227.144/produkt/';
     if (id != undefined) {
         url += '/' + id;
     }
@@ -178,7 +178,7 @@ function hentProduktAdmin(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://localhost:3000/produkt/' + id, init);
+                        let request = new Request('http://178.62.227.144/produkt/' + id, init);
                         console.log('hhhhhh');
                         fetch(request)
                             .then(response => {window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
@@ -235,7 +235,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://localhost:3000/oprett', init);
+        let request = new Request('http://178.62.227.144/oprett', init);
         console.log('hhhhhh');
         fetch(request)
             .then(response => { window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
@@ -268,7 +268,7 @@ document.querySelector('#gemKategori').addEventListener('click', (event2) => {
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://localhost:3000/opretkategori', init);
+        let request = new Request('http://178.62.227.144/opretkategori', init);
         console.log('hhhhhh');
         fetch(request)
             .then(response => {  window.location.replace(`admin.html`); console.log(response)}).catch(err => { console.log(err) });
@@ -283,7 +283,7 @@ document.querySelector('#gemKategori').addEventListener('click', (event2) => {
 
 function sletProdukt(id) {
     if(confirm('Er du sikker på at du vil slette dette produkt? Du kan ikke fortryde dette.')){
-    let url = 'http://localhost:3000/produkt'; // API'et/routet, det som der står i URL'en i browseren
+    let url = 'http://178.62.227.144/produkt'; // API'et/routet, det som der står i URL'en i browseren
     if (id != undefined) {
         url += '/' + id;
     }
