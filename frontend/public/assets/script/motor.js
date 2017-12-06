@@ -84,7 +84,7 @@ function sogebar(type) {
 }
 //______________________________________________________________________________________________
 function hentProdukt(id) {
-    let url = 'http://178.62.227.144/produkt/'+id;
+    let url = 'http://178.62.227.144:3000/produkt/'+id;
     
     fetch(url)
         .then((response) => {
