@@ -225,6 +225,8 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
         let init = {
             method: 'POST',
             body: data,
+            
+            cache: 'no-cache',
             mode: 'cors'
         };
         console.log('hejhejhej');
