@@ -10,11 +10,7 @@
 function hentDataAdmin(type = 0) {
     // let url = 'http://178.62.227.144:3000/produkter';
     // if (type > 0) url += '/' + type;
-<<<<<<< HEAD
-    fetch('http://localhost:3000/produkter', {
-=======
     fetch('http://178.62.227.144:3000/produkter', {
->>>>>>> bdf270c4b4aa5c798d6bc7c173177d8f73a121e2
         'method': 'GET',
         'mode':'cors',
         'cache': 'default'
