@@ -8,7 +8,7 @@
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function hentDataAdmin(type = 0) {
-    // let url = 'http://localhost:3000/produkter';
+    // let url = 'http://178.62.227.144:3000/produkter';
     // if (type > 0) url += '/' + type;
     fetch('http://178.62.227.144:3000/produkter', {
         'method': 'GET',
@@ -228,7 +228,11 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
             
         };
         console.log('hejhejhej');
+<<<<<<< HEAD
         let request = new Request(url, init);
+=======
+        let request = new Request('http://178.62.227.144:3000/oprett', init);
+>>>>>>> bdf270c4b4aa5c798d6bc7c173177d8f73a121e2
         console.log('hhhhhh');
         fetch(request)
             .then(response => { window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
