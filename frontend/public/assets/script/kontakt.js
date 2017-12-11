@@ -34,7 +34,14 @@ document.querySelector('#gem').addEventListener('click', (event) => {
     let request = new Request('http://178.62.227.144:3000/create', init);
     console.log('hhhhhh');
     fetch(request)
-        .then(response => { console.log(response) }).catch(err => { console.log(err) });
+        .then(response => { 
+            console.log(response)
+            window.location.replace(`kontakt.html`);
+         })
+         .catch(err => { 
+             console.log(err) 
+            }
+    );
         console.log('ooooo');
 }
 });
