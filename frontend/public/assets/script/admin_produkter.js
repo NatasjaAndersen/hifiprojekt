@@ -315,7 +315,7 @@ function sletProdukt(id) {
 document.getElementById('logud').addEventListener('click', () => {/*Her laver vi en localstoage clear, som clearer din storage og logger
     dig af systemet*/
     if (confirm('vil du logge af?')) { //Jeg beder JS om at spørge brugeren om personen er sikker på at ville logge af
-        localStorage.clear(); //Hvis brugeren bekræfter det ryger vi herned hvor jeg beder koden om at rydde det lokale 'lager' fra browseren
+        sessionStorage.clear(); //Hvis brugeren bekræfter det ryger vi herned hvor jeg beder koden om at rydde det lokale 'lager' fra browseren
         alert('Du er nu logget ud');//Derefter kommer der en alert der informerer om at brugeren nu er logget af
         window.location.replace('login.html');//Til sidst bliver brugeren omdirigeret til login siden.
     }
