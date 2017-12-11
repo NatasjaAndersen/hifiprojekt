@@ -5,6 +5,7 @@ const server = restify.createServer({
     'name': 'hifi',
     'version': '1.0.0'
 });
+
 server.use(logger('dev'));
 server.use(restify.plugins.bodyParser());
 const cors = corsmiddleware({ origins: ['*'],
