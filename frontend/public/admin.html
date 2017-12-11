@@ -64,7 +64,7 @@
 
     
         <!--OPRETTELSE AF NYT PRODUKT-->
-        <div id="logingroup"></div><form class="admin col-md-12">
+        <div id="logingroup"><form enctype="multipart/form-data" class="admin col-md-12">
             <h1 id="adminHeading">Admin panel</h1>
             <h2>Opret nyt produkt</h2>
             
@@ -105,13 +105,14 @@
                
     </select>
             <!--OBS! Fejl med cors når man forsøger at uploade et billede til databasen, vil forsøge at rette i næste praktik periode...-->
-            <!-- <br>
-    <input type="file" name="billede" id="billede" placeholder="Vælg billede" class="col-md-12 col-md-offset-12 col-xs-12"> -->
-        <!-- </div>
-        <br>
-        GEM KNAP--><br>
-        <button id="gemProdukt" class="col-md-4 col-md-offset-4 btn-success">Opret</button>
-<br>
+             <br>
+    <input type="file" name="billede" id="billede" placeholder="Vælg billede" class="col-md-4 col-md-offset-4 col-xs-12"> 
+    <br>
+    
+    <button id="gemProdukt" class="col-md-4 col-md-offset-4 btn-success">Opret</button>
+</form>
+</div>
+    <br>
         
         <h2 class="col-md-12">Opret Kategori </h2>
 

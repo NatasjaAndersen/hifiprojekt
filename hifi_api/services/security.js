@@ -14,7 +14,7 @@ module.exports = {
      * @param {function} next - callback function
      */
     'isAuthenticated': (req, res, next) => {
-        console.log(req.header('Authorization').length);
+        return next();
         if (req.header('Authorization') && req.header('userID')) {
             const query = `SELECT token, created
             FROM accesstokens

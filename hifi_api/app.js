@@ -5,8 +5,16 @@ const server = restify.createServer({
     'name': 'hifi',
     'version': '1.0.0'
 });
+
 server.use(logger('dev'));
-server.use(restify.plugins.bodyParser());
+server.use(restify.plugins.acceptParser(server.acceptable));
+// bodyparser skal vide hvor billederne skal placeres 
+server.use(restify.plugins.bodyParser({
+    mapParms: true,
+    mapFiles: true,
+    keepExtensions: true,
+    uploadDir: './tpm'
+}));
 const cors = corsmiddleware({ origins: ['*'],
 'allowHeaders': ['Authorization', 'userID'] });
 server.pre(cors.preflight);

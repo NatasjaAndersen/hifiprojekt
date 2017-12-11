@@ -6,7 +6,7 @@
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function hentData(type = 0) {
-    let url = 'http://178.62.227.144/produkter';
+    let url = 'http://178.62.227.144:3000/produkter';
     if (type > 0) url += '/' + type;
     fetch(url)
         .then((response) => {
@@ -56,7 +56,7 @@ document.querySelector('#soge').addEventListener('input', (event) => {
     sogebar(obj.value);
 })
 function sogebar(type) {
-    let url = 'http://178.62.227.144/produkter/sog';
+    let url = 'http://178.62.227.144:3000/produkter/sog';
     url += '/' + type;
     fetch(url)
         .then((response) => {
