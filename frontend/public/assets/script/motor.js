@@ -28,7 +28,7 @@ function hentData(type = 0) {
                     <div class="col-md-3">
                 <div><h3>${item.navn}</h3>
                         
-                <div><img src="./assets/media/${item.billede}" class="produktBilleder"></div>
+                <div><img src="http://178.62.227.144:3000/images/${item.billede}" class="produktBilleder"></div>
                        
                             
                 <p>Pris: ${item.pris} kr.</p>
@@ -72,7 +72,7 @@ function sogebar(type) {
                 
                 document.getElementById('content').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="./assets/media/${item.billede}"></div>
+                <div><img src="http://178.62.227.144:3000/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Kategori: ${item.kategori}</p>
                 <p><a onclick="hentProdukt(${item.id})"> Læs mere</a><br><br><br></p>
@@ -103,7 +103,7 @@ function hentProdukt(id) {
                 }
                 document.getElementById('content').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="./assets/media/${item.billede}"></div>
+                <div><img src="http://178.62.227.144:3000/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Beskrivelse: ${item.beskrivelse}</p>
                 </div><hr>
