@@ -6,7 +6,7 @@ module.exports = {
             'host': 'localhost',
             'user': 'root',
             'password': 'baliosseahorsey6507',
-            'database': 'hifis'
+            'database': 'hifi'
         });
     }
 };//HUSK AT ÆNDR I ALLE LOCALHOST TIL IPEN FRA DIGITAL OCEAN I DET PROJEKT DER ER FORBUNDET TIL PUTTY (DET HER PROJEKT ER FORBUNDET)
