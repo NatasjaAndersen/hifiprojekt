@@ -16,7 +16,7 @@ server.use(restify.plugins.bodyParser({
     uploadDir: './tpm'
 }));
 const cors = corsmiddleware({ origins: ['*'],
-'allowHeaders': ['Authorization', 'userID', 'Access-Control-Allow-Origin'] });
+'allowHeaders': ['Authorization', 'userID'] });
 server.pre(cors.preflight);
 server.use(cors.actual);
 
