@@ -40,12 +40,3 @@
         };
     });
 })();
-
-document.getElementById('logud').addEventListener('click', () => {/*Her laver vi en localstoage clear, som clearer din storage og logger
-    dig af systemet*/
-    if (confirm('vil du logge af?')) {
-        localStorage.clear();
-        alert('Du er nu logget ud');
-        window.location.replace('login.html');
-    }
-})
