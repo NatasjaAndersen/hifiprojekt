@@ -10,7 +10,11 @@
             });
             console.log('hej');
 
+<<<<<<< HEAD
             fetch('http://localhost:3000/login', { /*Vi laver derefter et fetch der sender det op til en route som hedder login*/
+=======
+            fetch('http://178.62.227.144:3000/login', { /*Vi laver derefter et fetch der sender det op til en route som hedder login*/
+>>>>>>> bdf270c4b4aa5c798d6bc7c173177d8f73a121e2
                 'method': 'POST',/*Nu skal vi sende informationer med til routen som også er et JSON objekt, omkring hvad er det for en
                 method, som her er post, hvilke headers, det er et JSON object*/
                 'headers': { 

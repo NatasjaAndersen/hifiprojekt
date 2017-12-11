@@ -31,7 +31,11 @@ document.querySelector('#gem').addEventListener('click', (event) => {
         mode: 'cors'
     };
     console.log('hejhejhej');
+<<<<<<< HEAD
     let request = new Request('http://localhost:3000/create', init);
+=======
+    let request = new Request('http://178.62.227.144:3000/create', init);
+>>>>>>> bdf270c4b4aa5c798d6bc7c173177d8f73a121e2
     console.log('hhhhhh');
     fetch(request)
         .then(response => { console.log(response) }).catch(err => { console.log(err) });
