@@ -223,16 +223,13 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
         let data = new FormData(form);
         let url = 'http://178.62.227.144:3000/produkter'
         let init = {
-            method: 'POST',
-            headers: {
+            'method': 'post',
+            'headers': {
                 'Authorization': localStorage.getItem('token'),
-                'Content-Type': 'application/json',
                 'userID': localStorage.getItem('userid')
             },
-            body: `{"navn":"${navn}","pris":${pris},"beskrivelse":"${beskrivelse}",
-            "fk_kategori_id":"${fk_kategori_id}", "fk_producent":"${fk_producent}", "billede":"${billede}"}`,
-            cache: 'no-cache',
-            mode: 'no-cors'
+            'body':data,
+            'cache':'no-cache'
         };
         console.log('hejhejhej');
 

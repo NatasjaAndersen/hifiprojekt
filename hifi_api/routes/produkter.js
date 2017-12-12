@@ -44,7 +44,6 @@ module.exports = function (app) {
     //..........................................ADMIN CRUD AF PRODUKTER.................................
 
     app.post('/produkter', security.isAuthenticated, (req, res, next) => {
-        const db = mysql.connect();
 
         let image = 'no-image.png';
 
@@ -83,7 +82,6 @@ module.exports = function (app) {
                     res.json(200, data);
                 }
             })
-            db.end();
         } else {
             res.json(400, {
                 message: 'validering fejlede'
