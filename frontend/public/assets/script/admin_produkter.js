@@ -229,7 +229,8 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
                 'Content-Type': 'application/json',
                 'userID': localStorage.getItem('userid')
             },
-            body: data,
+            body: `{"navn":"${navn}","pris":${pris},"beskrivelse":"${beskrivelse}",
+            "fk_kategori_id":"${fk_kategori_id}", "fk_producent":"${fk_producent}", "billede":"${billede}"}`,
             cache: 'no-cache',
             mode: 'no-cors'
         };
