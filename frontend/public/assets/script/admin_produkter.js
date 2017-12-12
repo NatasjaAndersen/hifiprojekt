@@ -224,6 +224,11 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
         let url = 'http://178.62.227.144:3000/produkter'
         let init = {
             method: 'POST',
+            headers: {
+                'Authorization': localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+                'userID': localStorage.getItem('userid')
+            },
             body: data,
             cache: 'no-cache',
             mode: 'no-cors'
