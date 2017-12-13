@@ -114,11 +114,11 @@ module.exports = function (app) {
                 // hvis den ønskede fil ikke er en .jpg eller .png, 
                 // sendes no-image som standard eller res.json(404)
                 res.json(404);
-                // fs.readFile('./api/images/no-image.png', (err, default_file) => {
-                //    res.writeHead(200);
-                //    res.write(default_file);
-                //    res.end();
-                // });
+                fs.readFile('./hifi_api/images/no-image.png', (err, default_file) => {
+                   res.writeHead(200);
+                   res.write(default_file);
+                   res.end();
+                });
             }
         });
     
