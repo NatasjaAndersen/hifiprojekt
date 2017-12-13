@@ -204,7 +204,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     let beskrivelse = document.querySelector('#beskrivelse').value;
     let fk_kategori_id = document.querySelector('#fk_kategori_id').value;
     let fk_producent = document.querySelector('#fk_producent').value;
-    let billede = document.querySelector('#billede').value;
+    // let billede = document.querySelector('#billede').value;
 
     if (navn == "") {
         alert("Angiv navn");
@@ -219,9 +219,10 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     } else {
 
         alert('Produktet er nu oprettet');
+        let url = 'http://178.62.227.144:3000/produkt'
         let form = document.querySelector('#logingroup form');
         let data = new FormData(form);
-        let url = 'http://178.62.227.144:3000/produkter'
+        
         let init = {
             'method': 'post',
             'headers': {
@@ -233,7 +234,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
         };
         console.log('hejhejhej');
 
-        let request = new Request('http://178.62.227.144:3000/oprett', init);
+        let request = new Request(url, init);
         console.log('hhhhhh');
         fetch(request)
             .then(response => { window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
