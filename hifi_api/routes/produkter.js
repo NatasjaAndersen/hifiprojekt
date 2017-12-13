@@ -56,24 +56,24 @@ module.exports = function (app) {
                 pris = pris.replace(',', '.');
                 if (navn != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.billede.navn != '') {
-                        image = req.files.billede.navn;
+                    if (req.files.image.navn != '') {
+                        image = req.files.image.navn;
         
                         // flyt den uploadede midlertidige fil til billede mappen
-                        var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
+                        var temp_image = fs.createReadStream('./' + req.files.image.path); // input stream
                         var final_image = fs.createWriteStream('./images/' + image); // output stream
                         temp_image.pipe(final_image); // flyt data fra temp til final
                         temp_image.on('end', function () {
                             // slet den midlertidige fil, når "final_image" er oprettet  
-                            fs.unlink('./' + req.files.billede.path);
+                            fs.unlink('./' + req.files.image.path);
                         });
                     } else {
                         // denne er nødvendig, pga en tom fil bliver lagt i uploadmappen hver gang formularen sendes.
-                        fs.unlink('./' + req.files.billede.path);
+                        fs.unlink('./' + req.files.image.path);
                     }
         
-                    console.log(navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, billede);
-                    db.query(sql, [navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, billede], function (err, data) {
+                    console.log(navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, image);
+                    db.query(sql, [navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
