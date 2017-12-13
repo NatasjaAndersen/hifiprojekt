@@ -15,6 +15,7 @@ server.use(restify.plugins.bodyParser({
     keepExtensions: true,
     uploadDir: './temp'
 }));
+server.use(restify.plugins.bodyParser());
 const cors = corsmiddleware({ origins: ['*'],allowHeaders: ['Authorization', 'userID'] });
 server.pre(cors.preflight);
 server.use(cors.actual);
