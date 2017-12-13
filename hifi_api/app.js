@@ -13,7 +13,7 @@ server.use(restify.plugins.bodyParser({
     mapParms: true,
     mapFiles: true,
     keepExtensions: true,
-    uploadDir: 'temp'
+    uploadDir: './temp'
 }));
 server.use(restify.plugins.bodyParser());
 const cors = corsmiddleware({ origins: ['*'],allowHeaders: ['Authorization', 'userID'] });
