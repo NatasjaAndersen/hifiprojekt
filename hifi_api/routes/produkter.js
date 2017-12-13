@@ -46,7 +46,8 @@ module.exports = function (app) {
         
         let image = 'no-image.png';
         
-                let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
+        let sql = `INSERT INTO produkter(id, navn, pris, beskrivelse, fk_kategori_id, fk_producent, billede) 
+                   VALUES (null, ?,?,?,?,?,?)`;
         
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
