@@ -42,7 +42,7 @@ module.exports = function (app) {
 
     //..........................................ADMIN CRUD AF PRODUKTER.................................
 
-    app.post('/produkter', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
+    app.post('/oprett', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
         
                 let image = 'no-image.png';
         
