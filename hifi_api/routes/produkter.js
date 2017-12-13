@@ -73,7 +73,7 @@ module.exports = function (app) {
                 fs.unlink('./' + req.files.billede.path);
             }
 
-
+            const db = mysql.connect();
             console.log(name, price, description, kategori_id, producent_id, image);
             db.query(sql, [name, price, description, kategori_id, producent_id, image], function (err, data) {
                 if (err) {
@@ -81,7 +81,8 @@ module.exports = function (app) {
                 } else {
                     res.json(200, data);
                 }
-            })
+                db.end();
+            }) 
         } else {
             res.json(400, {
                 message: 'validering fejlede'
@@ -186,13 +187,15 @@ module.exports = function (app) {
         let fk_producent = req.body.fk_producent;
         console.log(navn);
         let sql = `UPDATE produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=? WHERE ID=?`;
+        const db = mysql.connect();
+
         db.query(sql, [navn, pris, beskrivelse, fk_kategori_id, fk_producent, req.params.id], function (err, data) {
             if (err) {
                 console.log(err);
             } else {
                 res.send("Ok");
             }
-        }); 
+        }); db.end();
     });
 
 
