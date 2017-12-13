@@ -218,7 +218,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     } else {
 
         alert('Produktet er nu oprettet');
-        let url = 'http://178.62.227.144:3001/produkter/'
+        let url = 'http://178.62.227.144:3001/oprett/'
         let form = document.querySelector('#logingroup form');
         let data = new FormData(form);
         
