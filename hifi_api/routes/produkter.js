@@ -1,4 +1,4 @@
-
+const db = require('../config/sql').connect();
 const mysql = require('../config/sql');
 const fs = require('fs');
 const path = require('path');
