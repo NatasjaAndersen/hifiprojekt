@@ -10,7 +10,7 @@
 function hentDataAdmin(type = 0) {
     // let url = 'http://178.62.227.144:3000/produkter';
     // if (type > 0) url += '/' + type;
-    fetch('http://178.62.227.144:3000/produkter', {
+    fetch('http://178.62.227.144:3001/produkter', {
         'method': 'GET',
         'mode':'cors',
         'cache': 'default'
@@ -46,7 +46,7 @@ function hentDataAdmin(type = 0) {
                     <td>${item.pris} kr</td>
                     <td>${item.type}</td>
                     <td>${item.producent}</td>
-                    <td><img src="http://178.62.227.144:3000/images/${item.billede}"></td>
+                    <td><img src="http://178.62.227.144:3001/images/${item.billede}"></td>
                     <td><button onclick="hentProduktAdmin(${item.ID})" class="opdaterknap">Opdater</button></td>
                 <td><button onclick="sletProdukt(${item.ID})" class="slet">Slet produkt</button></td>
                   </tr>
@@ -65,7 +65,7 @@ function hentDataAdmin(type = 0) {
 //.......OPDATER PRODUKT......
 
 function hentProduktAdmin(id) {
-    let url = 'http://178.62.227.144:3000/produkt/';
+    let url = 'http://178.62.227.144:3001/produkt/';
     if (id != undefined) {
         url += '/' + id;
     }
@@ -178,7 +178,7 @@ function hentProduktAdmin(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://178.62.227.144:3000/produkt/' + id, init);
+                        let request = new Request('http://178.62.227.144:3001/produkt/' + id, init);
                         console.log('hhhhhh');
                         fetch(request)
                             .then(response => {window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
@@ -219,7 +219,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     } else {
 
         alert('Produktet er nu oprettet');
-        let url = 'http://178.62.227.144:3000/produkt'
+        let url = 'http://178.62.227.144:3001/produkt'
         let form = document.querySelector('#logingroup form');
         let data = new FormData(form);
         
@@ -267,7 +267,7 @@ document.querySelector('#gemKategori').addEventListener('click', (event2) => {
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://178.62.227.144:3000/opretkategori', init);
+        let request = new Request('http://178.62.227.144:3001/opretkategori', init);
         console.log('hhhhhh');
         fetch(request)
             .then(response => {  window.location.replace(`admin.html`); console.log(response)}).catch(err => { console.log(err) });
@@ -282,7 +282,7 @@ document.querySelector('#gemKategori').addEventListener('click', (event2) => {
 
 function sletProdukt(id) {
     if(confirm('Er du sikker på at du vil slette dette produkt? Du kan ikke fortryde dette.')){
-    let url = 'http://178.62.227.144:3000/produkt'; // API'et/routet, det som der står i URL'en i browseren
+    let url = 'http://178.62.227.144:3001/produkt'; // API'et/routet, det som der står i URL'en i browseren
     if (id != undefined) {
         url += '/' + id;
     }

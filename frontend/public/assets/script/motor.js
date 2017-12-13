@@ -6,7 +6,7 @@
 // Funktion som henter data til visning i content
 // Funktionen har en parameter - hvis tallet nul hentes alt indhold, og hvis større end nul hentes kun denne ene kategori
 function hentData(type = 0) {
-    let url = 'http://178.62.227.144:3000/produkter';
+    let url = 'http://178.62.227.144:3001/produkter';
     if (type > 0) url += '/' + type;
     fetch(url)
         .then((response) => {
@@ -28,7 +28,7 @@ function hentData(type = 0) {
                     <div class="col-md-3">
                 <div><h3>${item.navn}</h3>
                         
-                <div><img src="http://178.62.227.144:3000/images/${item.billede}" class="produktBilleder"></div>
+                <div><img src="http://178.62.227.144:3001/images/${item.billede}" class="produktBilleder"></div>
                        
                             
                 <p>Pris: ${item.pris} kr.</p>
@@ -56,7 +56,7 @@ document.querySelector('#soge').addEventListener('input', (event) => {
     sogebar(obj.value);
 })
 function sogebar(type) {
-    let url = 'http://178.62.227.144:3000/produkter/sog';
+    let url = 'http://178.62.227.144:3001/produkter/sog';
     url += '/' + type;
     fetch(url)
         .then((response) => {
@@ -72,7 +72,7 @@ function sogebar(type) {
                 
                 document.getElementById('content').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="http://178.62.227.144:3000/images/${item.billede}"></div>
+                <div><img src="http://178.62.227.144:3001/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Kategori: ${item.kategori}</p>
                 <p><a onclick="hentProdukt(${item.id})"> Læs mere</a><br><br><br></p>
@@ -84,7 +84,7 @@ function sogebar(type) {
 }
 //______________________________________________________________________________________________
 function hentProdukt(id) {
-    let url = 'http://178.62.227.144:3000/produkt/'+id;
+    let url = 'http://178.62.227.144:3001/produkt/'+id;
     
     fetch(url)
         .then((response) => {
@@ -103,7 +103,7 @@ function hentProdukt(id) {
                 }
                 document.getElementById('content').innerHTML += `
                 <div><h3>${item.navn}</h3>
-                <div><img src="http://178.62.227.144:3000/images/${item.billede}"></div>
+                <div><img src="http://178.62.227.144:3001/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Beskrivelse: ${item.beskrivelse}</p>
                 </div><hr>
