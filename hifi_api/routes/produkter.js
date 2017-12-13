@@ -48,16 +48,16 @@ module.exports = function (app) {
         
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
-                let navn = (req.body.navn == undefined ? '' : req.body.navn);
+                let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let pris = (req.body.pris == undefined ? 0 : req.body.pris);
                 let fk_kategori_id = req.body.fk_kategori_id;
                 let fk_producent_id = req.body.fk_producent_id;
                 pris = pris.replace(',', '.');
-                if (navn != '' && beskrivelse != '' && !isNaN(pris)) {
+                if (name != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.image.navn != '') {
-                        image = req.files.image.navn;
+                    if (req.files.image.name != '') {
+                        image = req.files.image.name;
         
                         // flyt den uploadede midlertidige fil til billede mappen
                         var temp_image = fs.createReadStream('./' + req.files.image.path); // input stream
