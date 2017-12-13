@@ -44,26 +44,26 @@ module.exports = function (app) {
 
     app.post('/oprett', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
         
-                let image = 'no-image.png';
+                let billede = 'no-image.png';
         
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
-                let name = (req.body.navn == undefined ? '' : req.body.navn);
-                let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
-                let price = (req.body.pris == undefined ? 0 : req.body.pris);
-                let kategori_id = req.body.kategori_id;
-                let producent_id = req.body.producent_id;
-                price = price.replace(',', '.');
-                if (name != '' && description != '' && !isNaN(price)) {
+                let navn = (req.body.navn == undefined ? '' : req.body.navn);
+                let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
+                let pris = (req.body.pris == undefined ? 0 : req.body.pris);
+                let fk_kategori_id = req.body.fk_kategori_id;
+                let fk_producent_id = req.body.fk_producent_id;
+                pris = pris.replace(',', '.');
+                if (navn != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
                     if (req.files.billede.name != '') {
-                        image = req.files.billede.name;
+                        image = req.files.billede.navn;
         
                         // flyt den uploadede midlertidige fil til billede mappen
-                        var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
-                        var final_image = fs.createWriteStream('./images/' + image); // output stream
-                        temp_image.pipe(final_image); // flyt data fra temp til final
-                        temp_image.on('end', function () {
+                        var temp_billede = fs.createReadStream('./' + req.files.billede.path); // input stream
+                        var final_billede = fs.createWriteStream('./images/' + billede); // output stream
+                        temp_billede.pipe(final_billede); // flyt data fra temp til final
+                        temp_billede.on('end', function () {
                             // slet den midlertidige fil, når "final_image" er oprettet  
                             fs.unlink('./' + req.files.billede.path);
                         });
@@ -72,8 +72,8 @@ module.exports = function (app) {
                         fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(name, price, description, kategori_id, producent_id, image);
-                    db.query(sql, [name, price, description, kategori_id, producent_id, image], function (err, data) {
+                    console.log(navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, billede);
+                    db.query(sql, [navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, billede], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
@@ -89,9 +89,9 @@ module.exports = function (app) {
 
         app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
             // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
-            if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png' || path.extname(req.params.name) == '.gif') {
+            if (path.extname(req.params.navn) == '.jpg' || path.extname(req.params.navn) == '.png' || path.extname(req.params.navn) == '.gif') {
                 // forsøg at læs billede filen fra images mappen...
-                fs.readFile('./images/' + req.params.name, function (err, file) {
+                fs.readFile('./images/' + req.params.navn, function (err, file) {
                     if (err) {
                         // den ønskede fil blev ikke fundet, vi sender standard "no-image.png" i stedet
                         // dette kunne også have været en res.json(404) 
