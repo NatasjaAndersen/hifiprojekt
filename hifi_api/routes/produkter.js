@@ -51,8 +51,8 @@ module.exports = function (app) {
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let price = (req.body.pris == undefined ? 0 : req.body.pris);
-                let kategori_id =req.body.select1;
-                let producent_id = req.body.select2;
+                let kategori_id =req.body.select1; //SELECT1 ER NAVNET FRA HTML SELECTBAREN - > HUUUUUUSK DET 
+                let producent_id = req.body.select2; //(Note til mig selv: Bruge hele dagen d. 13/12-2017 på at regne det ud...*suk*)
                 price = price.replace(',', '.');
                 if (name != '' && description != '' && !isNaN(price)) {
                     // håndter billedet, hvis der er sendt et billede 
