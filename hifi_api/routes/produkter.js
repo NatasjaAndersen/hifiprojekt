@@ -52,7 +52,7 @@ module.exports = function (app) {
                 let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let price = (req.body.pris == undefined ? 0 : req.body.pris);
                 let fk_kategori_id = req.body.fk_kategori_id;
-                let fk_producent_id = req.body.fk_producent_id;
+                let fk_producent = req.body.fk_producent;
                 price = price.replace(',', '.');
                 if (name != '' && description != '' && !isNaN(price)) {
                     // håndter billedet, hvis der er sendt et billede 
@@ -72,8 +72,8 @@ module.exports = function (app) {
                         fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(name, price, description, fk_kategori_id, fk_producent_id, image);
-                    db.query(sql, [name, price, description, fk_kategori_id, fk_producent_id, image], function (err, data) {
+                    console.log(name, price, description, fk_kategori_id, fk_producent, image);
+                    db.query(sql, [name, price, description, fk_kategori_id, fk_producent, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
