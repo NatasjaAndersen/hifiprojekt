@@ -5,39 +5,39 @@ const path = require('path');
 const security = require('../services/security');
 module.exports = function (app) {
     app.get('/produkter', function (req, res) {
-        const db = mysql.connect();
+        
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent
                     FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID
                     INNER JOIN producent ON produkter.fk_producent = producent.ID ORDER BY kategori.kategori
                     `, function (err, data) {
                 res.send(data);
             })
-        db.end();
+        
     });
     //.......SØGEFUNKTION..................
 
     app.get('/produkter/sog/:id', function (req, res, id) {
-        const db = mysql.connect();
+        
         db.query(`SELECT *, fk_kategori_id AS type FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.id where navn LIKE "%${req.params.id}%"`, function (err, data) {
             res.send(data);
         })
-        db.end();
+        
     });
     //.......PRODUKT NÅR DER TRYKKES......
     app.get('/produkter/:id', function (req, res, id) {
-        const db = mysql.connect();
+        
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede, kategori.kategori AS type, producent.producent FROM produkter INNER JOIN kategori ON produkter.fk_kategori_id = kategori.ID INNER JOIN producent ON produkter.fk_producent = producent.ID where produkter.fk_kategori_id = ?`, [req.params.id], function (err, data) {
             res.send(data);
         })
-        db.end();
+        
     });
 
     app.get('/produkt/:id', function (req, res, id) {
-        const db = mysql.connect();
+        
         db.query(`SELECT produkter.ID, produkter.navn, produkter.pris, produkter.beskrivelse, produkter.billede FROM produkter where produkter.id = ?`, [req.params.id], function (err, data) {
             res.send(data);
         })
-        db.end();
+        
     });
 
 
@@ -152,7 +152,7 @@ module.exports = function (app) {
     //.............................OPRET KATEGORI.......................
 
     app.post('/opretkategori', security.isAuthenticated, function (req, res, next) {
-        const db = mysql.connect();
+        
 
         let kategori = req.body.kategori;
 
@@ -170,7 +170,7 @@ module.exports = function (app) {
                 res.send("Ok");
             }
         });
-        db.end();
+        
 
     });
 
@@ -178,7 +178,7 @@ module.exports = function (app) {
 
 
     app.put('/produkt/:id', security.isAuthenticated, function (req, res) { // selve routet som har put metoden
-        const db = mysql.connect();
+        
         let navn = req.body.navn;
         let pris = req.body.pris;
         let beskrivelse = req.body.beskrivelse;
@@ -192,14 +192,14 @@ module.exports = function (app) {
             } else {
                 res.send("Ok");
             }
-        }); db.end();
+        }); 
     });
 
 
 
 
     app.del('/produkt/:id', security.isAuthenticated, function (req, res) { //Husk a "del" er restify depending
-        const db = mysql.connect();
+        
         let sql = `DELETE FROM produkter WHERE id = ?`;
         db.query(sql, [req.params.id], function (err, data) {
             if (err) {
@@ -208,7 +208,7 @@ module.exports = function (app) {
                 res.send("Ok");
             }
 
-        }); db.end();
+        }); 
     });
 
 
