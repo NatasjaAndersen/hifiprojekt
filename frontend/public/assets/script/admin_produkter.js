@@ -174,7 +174,7 @@ function hentProduktAdmin(id) {
                             },
                             body: `{"navn":"${navn}","pris":${pris},"beskrivelse":"${beskrivelse}",
                                 "fk_kategori_id":"${fk_kategori_id}", "fk_producent":"${fk_producent}"}`,
-                            cache: 'no-cache',
+                            cache: 'default',
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
