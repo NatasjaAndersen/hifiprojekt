@@ -1,9 +1,7 @@
 const db = require('../config/sql').connect();
-const mysql = require('../config/sql');
+const security = require('../services/security');
 const fs = require('fs');
 const path = require('path');
-const security = require('../services/security');
-const service = require('../services/produkter');
 module.exports = function (app) {
     app.get('/produkter', function (req, res) {
         
