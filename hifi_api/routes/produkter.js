@@ -44,7 +44,7 @@ module.exports = function (app) {
 
     app.post('/oprett', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
         
-                let billede = 'no-image.png';
+                let image = 'no-image.png';
         
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
@@ -56,14 +56,14 @@ module.exports = function (app) {
                 pris = pris.replace(',', '.');
                 if (navn != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.billede.name != '') {
+                    if (req.files.billede.navn != '') {
                         image = req.files.billede.navn;
         
                         // flyt den uploadede midlertidige fil til billede mappen
-                        var temp_billede = fs.createReadStream('./' + req.files.billede.path); // input stream
-                        var final_billede = fs.createWriteStream('./images/' + billede); // output stream
-                        temp_billede.pipe(final_billede); // flyt data fra temp til final
-                        temp_billede.on('end', function () {
+                        var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
+                        var final_image = fs.createWriteStream('./images/' + image); // output stream
+                        temp_image.pipe(final_image); // flyt data fra temp til final
+                        temp_image.on('end', function () {
                             // slet den midlertidige fil, når "final_image" er oprettet  
                             fs.unlink('./' + req.files.billede.path);
                         });
@@ -89,9 +89,9 @@ module.exports = function (app) {
 
         app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
             // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
-            if (path.extname(req.params.navn) == '.jpg' || path.extname(req.params.navn) == '.png' || path.extname(req.params.navn) == '.gif') {
+            if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png' || path.extname(req.params.name) == '.gif') {
                 // forsøg at læs billede filen fra images mappen...
-                fs.readFile('./images/' + req.params.navn, function (err, file) {
+                fs.readFile('./images/' + req.params.name, function (err, file) {
                     if (err) {
                         // den ønskede fil blev ikke fundet, vi sender standard "no-image.png" i stedet
                         // dette kunne også have været en res.json(404) 
