@@ -56,8 +56,8 @@ module.exports = function (app) {
                 pris = pris.replace(',', '.');
                 if (name != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.image.name != '') {
-                        image = req.files.image.name;
+                    if (req.files.billede.name != '') {
+                        image = req.files.billede.name;
         
                         // flyt den uploadede midlertidige fil til billede mappen
                         var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
