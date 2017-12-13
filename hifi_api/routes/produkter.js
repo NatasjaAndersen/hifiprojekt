@@ -44,20 +44,20 @@ module.exports = function (app) {
 
     app.post('/oprett', security.isAuthenticated, (req, res, next) => { // Route som uploader billeder 
         
-                let image = 'no-image.png';
+        let image = 'no-image.png';
         
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
-                let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
-                let pris = (req.body.pris == undefined ? 0 : req.body.pris);
+                let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
+                let price = (req.body.pris == undefined ? 0 : req.body.pris);
                 let fk_kategori_id = req.body.fk_kategori_id;
                 let fk_producent_id = req.body.fk_producent_id;
-                pris = pris.replace(',', '.');
-                if (name != '' && beskrivelse != '' && !isNaN(pris)) {
+                price = price.replace(',', '.');
+                if (name != '' && description != '' && !isNaN(price)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.image.name != '') {
-                        image = req.files.image.name;
+                    if (req.files.billede.name != '') {
+                        image = req.files.billede.name;
         
                         // flyt den uploadede midlertidige fil til billede mappen
                         var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
@@ -72,8 +72,8 @@ module.exports = function (app) {
                         fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(name, pris, beskrivelse, fk_kategori_id, fk_producent_id, image);
-                    db.query(sql, [name, pris, beskrivelse, fk_kategori_id, fk_producent_id, image], function (err, data) {
+                    console.log(name, price, description, kategori_id, producent_id, image);
+                    db.query(sql, [name, price, description, kategori_id, producent_id, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
