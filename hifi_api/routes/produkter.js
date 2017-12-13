@@ -72,8 +72,8 @@ module.exports = function (app) {
                         fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(name, price, description, kategori_id, producent_id, image);
-                    db.query(sql, [name, price, description, kategori_id, producent_id, image], function (err, data) {
+                    console.log(name, price, description, fk_kategori_id, fk_producent_id, image);
+                    db.query(sql, [name, price, description, fk_kategori_id, fk_producent_id, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
