@@ -46,13 +46,13 @@ module.exports = function (app) {
         
                 let image = 'no-image.png';
         
-                let sql = `INSERT INTO produkter SET ID=? navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
+                let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let price = (req.body.pris == undefined ? 0 : req.body.pris);
-                let kategori_id = (req.body.kategori_id == undefined ? 0 : req.body.kategori_id);
-                let producent_id = (req.body.producent_id == undefined ? 0 : req.body.producent_id);
+                let kategori_id =req.body.kategori_id;
+                let producent_id = req.body.producent_id;
                 price = price.replace(',', '.');
                 if (name != '' && description != '' && !isNaN(price)) {
                     // håndter billedet, hvis der er sendt et billede 
