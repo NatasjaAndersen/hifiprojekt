@@ -49,12 +49,12 @@ module.exports = function (app) {
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
-                let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
-                let pris = (req.body.pris == undefined ? 0 : req.body.pris);
-                let fk_kategori = req.body.fk_kategori_id == undefined ? 0 : req.body.fk_kategori;
-                let fk_producent = req.body.fk_producent == undefined ? 0 : req.body.fk_producent;
-                pris = pris.replace(',', '.');
-                if (name != '' && beskrivelse != '' && !isNaN(pris)) {
+                let description = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
+                let price = (req.body.pris == undefined ? 0 : req.body.pris);
+                let kategori_id = req.body.kategori_id;
+                let producent_id = req.body.producent_id;
+                price = price.replace(',', '.');
+                if (name != '' && description != '' && !isNaN(price)) {
                     // håndter billedet, hvis der er sendt et billede 
                     if (req.files.billede.name != '') {
                         image = req.files.billede.name;
@@ -72,8 +72,8 @@ module.exports = function (app) {
                         fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(name, pris, beskrivelse, fk_kategori, fk_producent, image);
-                    db.query(sql, [name, pris, beskrivelse, fk_kategori, fk_producent, image], function (err, data) {
+                    console.log(name, price, description, kategori_id, producent_id, image);
+                    db.query(sql, [name, price, description, kategori_id, producent_id, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
