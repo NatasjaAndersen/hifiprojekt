@@ -65,7 +65,7 @@ function hentDataAdmin(type = 0) {
 //.......OPDATER PRODUKT......
 
 function hentProduktAdmin(id) {
-    let url = 'http://178.62.227.144:3001/produkt/';
+    let url = 'http://178.62.227.144:3001/produkt';
     if (id != undefined) {
         url += '/' + id;
     }
@@ -219,7 +219,7 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     } else {
 
         alert('Produktet er nu oprettet');
-        let url = 'http://178.62.227.144:3001/produkt'
+        let url = 'http://178.62.227.144:3001/produkt/'
         let form = document.querySelector('#logingroup form');
         let data = new FormData(form);
         
