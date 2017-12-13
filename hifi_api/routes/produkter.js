@@ -44,7 +44,7 @@ module.exports = function (app) {
 
     //..........................................ADMIN CRUD AF PRODUKTER.................................
 
-    app.post('/produkt', security.isAuthenticated, (req, res, next) => {
+    app.post('/produkter', security.isAuthenticated, (req, res, next) => {
 
         let image = 'no-image.png';
 
