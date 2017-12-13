@@ -219,7 +219,7 @@ module.exports = function (app) {
                 let billede = req.body.billede;
         console.log(navn);
 
-               let sql = `INSERT INTO produkter(id, navn, pris, beskrivelse, fk_kategori_id, fk_producent, billede) 
+               let sql = `INSERT INTO produkter(id, navn, pris, beskrivelse, fk_kategori_id, fk_producent, no-image.jpg) 
                VALUES (null, ?,?,?,?,?,?)`;
 
                db.query(sql,[navn,pris,beskrivelse,fk_kategori_id,fk_producent,billede], function (err, data) {
