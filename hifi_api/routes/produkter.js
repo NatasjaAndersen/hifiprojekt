@@ -51,7 +51,7 @@ module.exports = function (app) {
                 let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let pris = (req.body.pris == undefined ? 0 : req.body.pris);
-                let fk_kategori = req.body.fk_kategori_id == undefined ? 0 : req.body.fk_kategori_id;
+                let fk_kategori = req.body.fk_kategori_id == undefined ? 0 : req.body.fk_kategori;
                 let fk_producent = req.body.fk_producent == undefined ? 0 : req.body.fk_producent;
                 pris = pris.replace(',', '.');
                 if (name != '' && beskrivelse != '' && !isNaN(pris)) {
