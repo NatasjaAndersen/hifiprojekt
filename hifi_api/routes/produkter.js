@@ -48,32 +48,32 @@ module.exports = function (app) {
         
                 let sql = `INSERT INTO produkter SET navn=?,pris=?,beskrivelse=?,fk_kategori_id=?,fk_producent=?, billede=?`;
         
-                let navn = (req.body.navn == undefined ? '' : req.body.navn);
+                let name = (req.body.navn == undefined ? '' : req.body.navn);
                 let beskrivelse = (req.body.beskrivelse == undefined ? '' : req.body.beskrivelse);
                 let pris = (req.body.pris == undefined ? 0 : req.body.pris);
                 let fk_kategori_id = req.body.fk_kategori_id;
                 let fk_producent_id = req.body.fk_producent_id;
                 pris = pris.replace(',', '.');
-                if (navn != '' && beskrivelse != '' && !isNaN(pris)) {
+                if (name != '' && beskrivelse != '' && !isNaN(pris)) {
                     // håndter billedet, hvis der er sendt et billede 
-                    if (req.files.image.navn != '') {
-                        image = req.files.image.navn;
+                    if (req.files.image.name != '') {
+                        image = req.files.image.name;
         
                         // flyt den uploadede midlertidige fil til billede mappen
-                        var temp_image = fs.createReadStream('./' + req.files.image.path); // input stream
+                        var temp_image = fs.createReadStream('./' + req.files.billede.path); // input stream
                         var final_image = fs.createWriteStream('./images/' + image); // output stream
                         temp_image.pipe(final_image); // flyt data fra temp til final
                         temp_image.on('end', function () {
                             // slet den midlertidige fil, når "final_image" er oprettet  
-                            fs.unlink('./' + req.files.image.path);
+                            fs.unlink('./' + req.files.billede.path);
                         });
                     } else {
                         // denne er nødvendig, pga en tom fil bliver lagt i uploadmappen hver gang formularen sendes.
-                        fs.unlink('./' + req.files.image.path);
+                        fs.unlink('./' + req.files.billede.path);
                     }
         
-                    console.log(navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, image);
-                    db.query(sql, [navn, pris, beskrivelse, fk_kategori_id, fk_producent_id, image], function (err, data) {
+                    console.log(name, pris, beskrivelse, fk_kategori_id, fk_producent_id, image);
+                    db.query(sql, [name, pris, beskrivelse, fk_kategori_id, fk_producent_id, image], function (err, data) {
                         if (err) {
                             console.log(err);
                         } else {
@@ -87,11 +87,11 @@ module.exports = function (app) {
                 }
         });
 
-        app.get('/images/:navn', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
+        app.get('/images/:name', (req, res, next) => { // Route som gør at uploadede billeder midlertidigt kommer i temp mappen
             // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
-            if (path.extname(req.params.navn) == '.jpg' || path.extname(req.params.navn) == '.png' || path.extname(req.params.navn) == '.gif') {
+            if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png' || path.extname(req.params.name) == '.gif') {
                 // forsøg at læs billede filen fra images mappen...
-                fs.readFile('./images/' + req.params.navn, function (err, file) {
+                fs.readFile('./images/' + req.params.name, function (err, file) {
                     if (err) {
                         // den ønskede fil blev ikke fundet, vi sender standard "no-image.png" i stedet
                         // dette kunne også have været en res.json(404) 
