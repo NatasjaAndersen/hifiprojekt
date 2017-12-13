@@ -204,7 +204,6 @@ document.querySelector('#gemProdukt').addEventListener('click', (event2) => {
     let beskrivelse = document.querySelector('#beskrivelse').value;
     let fk_kategori_id = document.querySelector('#fk_kategori_id').value;
     let fk_producent = document.querySelector('#fk_producent').value;
-    // let billede = document.querySelector('#billede').value;
 
     if (navn == "") {
         alert("Angiv navn");
