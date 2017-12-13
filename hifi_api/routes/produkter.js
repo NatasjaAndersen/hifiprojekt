@@ -97,7 +97,7 @@ module.exports = function (app) {
                         // dette kunne også have været en res.json(404) 
                         fs.readFile('./images/no-image.png', (err2, default_file) => {
                             res.writeHead(200);
-                            res.write(default_file);
+                            // res.write(default_file);
                             res.end();
                         });
     
