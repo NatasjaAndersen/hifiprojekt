@@ -65,7 +65,7 @@ function hentDataAdmin(type = 0) {
 //.......OPDATER PRODUKT......
 
 function hentProduktAdmin(id) {
-    let url = 'http://178.62.227.144:3001/produkt';
+    let url = 'http://178.62.227.144:3001/produkt/';
     if (id != undefined) {
         url += '/' + id;
     }
@@ -178,7 +178,7 @@ function hentProduktAdmin(id) {
                             mode: 'cors'
                         };
                         console.log('hejhejhej');
-                        let request = new Request('http://178.62.227.144:3001/produkt' + id, init);
+                        let request = new Request('http://178.62.227.144:3001/produkt/' + id, init);
                         console.log('hhhhhh');
                         fetch(request)
                             .then(response => {window.location.replace(`admin.html`); console.log(response) }).catch(err => { console.log(err) });
