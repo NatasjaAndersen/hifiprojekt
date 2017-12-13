@@ -266,7 +266,7 @@ document.querySelector('#gemKategori').addEventListener('click', (event2) => {
             mode: 'cors'
         };
         console.log('hejhejhej');
-        let request = new Request('http://178.62.227.144:3001/produkt:id', init);
+        let request = new Request('http://178.62.227.144:3001/opretkategori', init);
         console.log('hhhhhh');
         fetch(request)
             .then(response => {  window.location.replace(`admin.html`); console.log(response)}).catch(err => { console.log(err) });
