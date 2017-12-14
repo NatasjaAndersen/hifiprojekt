@@ -121,7 +121,7 @@ function hentProduktAdmin(id) {
             </select><br>
                     <!--SELECT BOKS 2, PRODUCENT-->
                     <select name="select2" id="opdaterfk_producent" class="col-md-4 col-md-offset-4">
-                    <option>${fk_producent}</option>
+                    <option>${item.fk_producent}</option>
                         <option value="1">Creek Audio Ltd</option>
                         <option value="2">Exposure</option>
                         <option value="3">Parasound</option>
