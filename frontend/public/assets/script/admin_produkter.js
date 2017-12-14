@@ -107,8 +107,8 @@ function hentProduktAdmin(id) {
                     placeholder="skriv din kommentar her">${item.beskrivelse}</textarea>
                     <br>
                     <!--SELECT BOKS 1, KATEGORI-->
-                    <select name="select1" id="opdaterfk_kategori_id" class="col-md-4 col-md-offset-4">${item.select1}
-                <option>Vælg kategori</option>
+                    <select name="select1" id="opdaterfk_kategori_id" class="col-md-4 col-md-offset-4">
+                <option>${item.select1}</option>
                     <option value="1">CD afspillere</option>
                     <option value="2">DVD afspillere</option>
                     <option value="3">Effektforstærkere</option>
