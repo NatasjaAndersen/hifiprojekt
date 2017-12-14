@@ -87,7 +87,7 @@ function hentProduktAdmin(id) {
                 document.getElementById('contentAdmin').innerHTML += `
                 
                 <div><h3>${item.navn}</h3>
-                <div><img src="./assets/media/${item.billede}"></div>
+                <div><img src="http://178.62.227.144:3001/images/${item.billede}"></div>
                 <p>Pris: ${item.pris} kr.</p>
                 <p>Beskrivelse: ${item.beskrivelse}</p>
                 </div><hr>
