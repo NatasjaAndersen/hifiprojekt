@@ -108,7 +108,7 @@ function hentProduktAdmin(id) {
                     <br>
                     <!--SELECT BOKS 1, KATEGORI-->
                     <select name="select1" id="opdaterfk_kategori_id" class="col-md-4 col-md-offset-4">
-                <option>${item.fk_kategori_id}</option>
+                <option>Vælg kategori</option>
                     <option value="1">CD afspillere</option>
                     <option value="2">DVD afspillere</option>
                     <option value="3">Effektforstærkere</option>
@@ -121,7 +121,7 @@ function hentProduktAdmin(id) {
             </select><br>
                     <!--SELECT BOKS 2, PRODUCENT-->
                     <select name="select2" id="opdaterfk_producent" class="col-md-4 col-md-offset-4">
-                    <option>Vælg producent</option>
+                    <option>${fk_producent}</option>
                         <option value="1">Creek Audio Ltd</option>
                         <option value="2">Exposure</option>
                         <option value="3">Parasound</option>
